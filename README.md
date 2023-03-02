@@ -1,13 +1,16 @@
-# Cryptocurrencies
-This report will include what cryptocurrencies are on the trading market and how they could be grouped to create a classification system for a potential new investment from analyzing this [crypto_data.csv file]()
+# Cryptocurrencies   
+<sub>Cryptocurrency Dataset Sampled: [crypto_data.csv](https://github.com/vzhang90/Cryptocurrencies/blob/main/crypto_data.csv)</sub>  
+<sub>Unsupervised Machine Learning code: [crypto_clustering.ipynb]()</sub>
 
-This data is processed to better fit the machine learning models. Since there is no known output we are looking for, using unsupervised learning is most suited in this scenario to group cryptocurrencies based on a clustering algorithm. 
+This report will include what cryptocurrencies are on the trading market and how they could be grouped to create a classification system for a potential new investment by analyzing this [crypto_data.csv file](https://github.com/vzhang90/Cryptocurrencies/blob/main/crypto_data.csv), retrieved from [CryptoCompare](https://min-api.cryptocompare.com/data/all/coinlist).
+
+This data is not ideal, so processing is required to better fit the machine learning models. Since there is no known output we are looking for, unsupervised learning is most suited in this scenario to group cryptocurrencies based on a clustering algorithm. 
 
 ## Overview of Analysis
 
 #### Preprocessing Data for PCA     
-Using Pandas, the dataset will be preprocessed in order to perform PCA:
-1. read in the [crypto_data.csv]() to the Pandas DataFrame named `crypto_df`     
+Using Pandas, the dataset was initially preprocessed in order to be able to perform Principal Component Analysis (PCA) after:
+1. read in the [crypto_data.csv](https://github.com/vzhang90/Cryptocurrencies/blob/main/crypto_data.csv) to the Pandas DataFrame named `crypto_df`     
 2. keep all the cryptocurrencies that are being traded    
 3. drop the `IsTrading` column    
 4. remove rows that have at least one null value     
@@ -21,13 +24,13 @@ Using Pandas, the dataset will be preprocessed in order to perform PCA:
 
 #### Reducing Data Dimensions using PCA
 
-Applying the Principal Component Analysis (PCA) algorithm, educe the dimensions of the X DataFrame to three principal components and place these dimensions in a new DataFrame:
+Applying the Principal Component Analysis (PCA) algorithm to reduce the dimensions of the X DataFrame to three principal components and place these dimensions in a new DataFrame:
 - create a new DataFrame named `pcs_df` that includes the following columns, `PC 1`, `PC 2`, and `PC 3`, and uses the index of the `crypto_df` DataFrame as the index
 
 #### Clustering Cryptocurrencies using K-means
-Applying the K-means algorithm, create an elbow curve using `hvPlot` to find the best value for K from the `pcs_df` DataFrame created previously. Then, run the K-means algorithm to predict the K clusters for the cryptocurrencies’ data.
-1. using the `pcs_df` DataFrame, create an elbow curve using `hvPlot` to find the best value for K
-2. next, use the `pcs_df` DataFrame to run the K-means algorithm to make predictions of the K clusters for the cryptocurrencies’ data
+
+1. use the `pcs_df` DataFrame, create an elbow curve using `hvPlot` to find the best value for K
+2. use the `pcs_df` DataFrame to run the K-means algorithm to make predictions of the K clusters for the cryptocurrencies’ data
 3. create a new DataFrame named `clustered_df` by concatenating the `crypto_df` and `pcs_df` DataFrames on the same columns. The index should be the same as the crypto_df DataFrame    
 4. add the `CoinName` column that holds the names of the cryptocurrencies, created in Step 6 when preprocessing the data using PCS, to the `clustered_df`   
 5. add another new column to the `clustered_df` named `Class` that holds the predictions, i.e., `model.labels_`, from Step 2
