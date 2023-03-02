@@ -7,8 +7,6 @@ This data is not ideal, so processing is required to better fit the machine lear
 <sub><b><em>Cryptocurrency Dataset Sampled:</b></em> [crypto_data.csv](https://github.com/vzhang90/Cryptocurrencies/blob/main/crypto_data.csv)</sub>  
 <br>
 
----
----
 
 ## Overview of Analysis
 > <sub><b><em>Unsupervised Machine Learning code:</b></em> [crypto_clustering.ipynb]()</sub>
