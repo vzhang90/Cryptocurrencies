@@ -9,7 +9,7 @@ This data is not ideal, so processing is required to better fit the machine lear
 
 
 ## Overview of Analysis
-> <sub><b><em>Unsupervised Machine Learning code:</b></em> [crypto_clustering.ipynb]()</sub>
+> <sub><b><em>Unsupervised Machine Learning code:</b></em> [crypto_clustering.ipynb](https://github.com/vzhang90/Cryptocurrencies/blob/main/crypto_clustering.ipynb)</sub>
 
 ---
 ### **Preprocessing Data for PCA**     
